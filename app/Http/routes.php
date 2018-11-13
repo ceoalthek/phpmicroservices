@@ -14,5 +14,5 @@
 $app->get('/', ['uses' => 'PrincipalController@index']);
 $app->get('webservice', ['uses' => 'PrincipalController@webservice']);
 
-$app->post('insertar', ['uses' => 'PrincipalController@insertar']);
+$app->post('suma', ['uses' => 'PrincipalController@suma']);
 
