@@ -11,7 +11,7 @@
             'a' => $post['a'],
             'b' => $post['b'],
         );
-        var_dump($datos);
+
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         $output = curl_exec($ch);
         curl_close($ch);
@@ -85,10 +85,8 @@
         }
         if (!empty($datos)) {
             $cliente = new nusoap_client($urlSelec, true);
-            var_dump($datos);
             $result = $cliente->call($funcion, $datos);
         }
 
         var_dump($result);
     }
-?>
