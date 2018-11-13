@@ -8,6 +8,8 @@
             'usu_passwd' => '1234.', 
             'numero' => $_POST['numero'],
         );
+
+        
         $wsUrl="http://orion.dgsca.unam.mx/ms/server.php?wsdl";
         $metodo = "calcularRaiz";
         break;
