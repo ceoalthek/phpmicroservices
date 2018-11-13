@@ -11,5 +11,8 @@
 |
 */
 
-$app->get('/', ['uses' => 'PrincipalController@index']); 
-$app->post('insertar', ['uses' => 'PrincipalController@insertar']); 
+$app->get('/', ['uses' => 'PrincipalController@index']);
+$app->get('webservice', ['uses' => 'PrincipalController@webservice']);
+
+$app->post('insertar', ['uses' => 'PrincipalController@insertar']);
+
