@@ -25,6 +25,8 @@
             }
               
             $result = $cliente->call($method, $datos);
+
+            //print_r($cliente->response);
             if ($cliente->fault) {
                 echo "Fault: ";
                 echo $result;
@@ -122,14 +124,21 @@
             }
             break;
         case 'raiz':
-            $urlWsdl = 'http://132.248.63.141/ms/server.php?wsdl';
-            $method = 'resta';
+            $urlWsdl = 'http://orion.dgsca.unam.mx/ms/server.php?wsdl';
+            $method = 'calcularRaiz';
             $datos = array(
-                'username' => 'karla',
-                'password' => '1234',
-                'num1' => $_POST['num1'],
-                'num2' =>  $_POST['num2'],
+                'usu_email' => 'malag@unam.mx',
+                'usu_passwd' => '1234',
+                'numero' => $_POST['num1'],
             );
+            $datos = array('datos' => json_encode($datos));
+            $resultado = wservice($urlWsdl, $method, $datos);
+
+            if($resultado['exito'] != 1){
+                echo $resultado['mensaje'];
+            } else {
+                echo $resultado['resultado'];
+            }
             break;
         case 'exponencial':
             $urlWsdl = 'https://www.althek.com/ws/server.php?wsdl';
