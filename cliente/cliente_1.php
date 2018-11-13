@@ -66,11 +66,11 @@
                 $funcion = "division";
                 break;
             case '5':
-                $datos = array(
+                $datos = json_encode(array(
                     'numero' => $_POST['a'],
                     'usu_email' => 'malag@unam.mx',
                     'usu_passwd' => '1234.',
-                );
+                ));
                 $funcion = "calcularRaiz";
                 break;
             case '6':
