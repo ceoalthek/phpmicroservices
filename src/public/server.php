@@ -42,7 +42,7 @@
         $datos = json_decode($datos, true);
         login($datos);
         $numero = $datos['numero'];
-        $raiz=$numero*$numero;
+        $raiz=sqrt($numero);
         $respuesta['exito']=1;
         $respuesta['numero']=$numero;
         $respuesta['resultado'] = $raiz;
