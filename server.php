@@ -147,36 +147,7 @@
         return json_encode($respuesta);            
     }
 
-    /**
-    Este es el chido de la división
-    */
-    function logicaProcesaPeticionMultiplicacion($numeros, $datos) 
-    {
-        $datos = json_decode($datos, TRUE);
-        $login = login($datos);
-
-        if ($login['code']=="0")
-        {
-            $respuesta['datos'] = multiplicar($numeros);
-            $respuesta['codigo'] = "0";
-            $respuesta['mensaje'] = "";
-        }
-        else if ($login['code']=="-1")
-        {
-            $respuesta['datos'] = "";
-            $respuesta['codigo'] = "-1";
-            $respuesta['mensaje'] = $login['error'];
-        }
-        else if ($login['code']=="-2")
-        {
-            $respuesta['datos'] = "";
-            $respuesta['codigo'] = "-2";
-            $respuesta['mensaje'] = $login['error'];            
-        }
-
-        return json_encode($respuesta);            
-    }
-
+    
     function dividir($numeros) {
         $arreglo = explode(",", $numeros);
         $resultado = "";
@@ -195,32 +166,11 @@
         return json_encode($resultado);        
     }
 
-    function multiplicar($numeros){
-        $arreglo = explode(",", $numeros);
-        $resultado = "";
-        foreach($arreglo as $num) {
-            if(empty($resultado)){
-                if(floatval($num) != 0){
-                    $resultado = floatval($num);    
-                }                
-            } else {
-                if(floatval($num) != 0){
-                    $resultado *= floatval($num);    
-                }
-            }
-            
-        }
-        return json_encode($resultado);            
-    }
-
+    
     function division($numeros, $datos) {        
         return logicaProcesaPeticionDivision($numeros, $datos);
     }
 
-    function multiplicacion($numeros, $datos) {        
-        return logicaProcesaPeticionMultiplicacion($numeros, $datos);    
-    }
-      
     $server = new soap_server();
     $server->configureWSDL("registros", "urn:registros");
 
